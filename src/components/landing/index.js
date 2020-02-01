@@ -8,7 +8,7 @@ import "./index.scss";
 
 class Landing extends React.Component {
   render() {
-    const { chatbotOpen, handleChatbot } = this.props;
+    const { chatbotOpen, handleChatbot, questions } = this.props;
 
     return (
       <div>
@@ -21,7 +21,10 @@ class Landing extends React.Component {
           className={`home__chatbot ${chatbotOpen ? "open" : "closed-paco"}`}
         >
           {chatbotOpen ? (
-            <Chatbot handleChatbot={handleChatbot} />
+            <Chatbot 
+              handleChatbot={handleChatbot} 
+              questions={questions}
+            />
           ) : (
             <div className="home__chatbot--closed" onClick={handleChatbot}>
               <img

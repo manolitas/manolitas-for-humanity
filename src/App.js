@@ -61,7 +61,13 @@ class App extends React.Component {
     return (
       <div className="app">
         <Switch>
-          <Route exact path="/" render={() => <Landing chatbotOpen={chatbotOpen} handleChatbot={this.handleChatbot} />} />
+          <Route exact path="/" render={() => (
+            <Landing 
+              chatbotOpen={chatbotOpen} 
+              handleChatbot={this.handleChatbot} 
+              questions={questions}
+            />)}
+          />
           <Route path="/admin" render={() => (
             <Admin 
               questions={questions} 
