@@ -1,26 +1,19 @@
 import React from 'react';
 import Admin from './components/Admin';
 import './App.css';
+import data from './questions.json';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: [
-        {
-          question_id: '1',
-          name: "Pregunta de prueba",
-          type: {
-            open: 'yes',
-            guided: [
-              'Opción 1',
-              'Opción 2',
-              'Opción 3'
-            ]
-          }
-        }
-      ]
+      questions: []
     };
+  }
+  componentDidMount() {
+    this.setState({
+      questions: data.users.questions
+    });
   }
 
   handleQuestionText = event => {
