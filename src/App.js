@@ -76,7 +76,7 @@ class App extends React.Component {
               handleQuestionOptions={this.handleQuestionOptions}
             />)}
           />
-          <Route path="/visualization" render={() => <DataVisulization></DataVisulization>}
+          <Route path="/dashboard" render={() => <DataVisulization></DataVisulization>} />
         </Switch>
       </div>
     );
