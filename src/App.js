@@ -3,6 +3,7 @@ import Admin from './components/Admin';
 import './App.css';
 import data from './questions.json';
 import Landing from "./components/landing/index.js";
+import {Route, Switch, Link} from 'react-router-dom';
 // import Charts from "./components/charts/index.jsx";
 
 class App extends React.Component {
@@ -59,12 +60,17 @@ class App extends React.Component {
     const {questions, chatbotOpen} = this.state;
     return (
       <div className="app">
-        <Admin 
-          questions={questions} 
-          handleQuestionType={this.handleQuestionType}
-          handleQuestionText={this.handleQuestionText} 
-          handleQuestionOptions={this.handleQuestionOptions} />
-        <Landing chatbotOpen={chatbotOpen} handleChatbot={this.handleChatbot}></Landing>
+        <Switch>
+          <Route exact path="/" render={() => <Landing chatbotOpen={chatbotOpen} handleChatbot={this.handleChatbot} />} />
+          <Route path="/admin" render={() => (
+            <Admin 
+              questions={questions} 
+              handleQuestionType={this.handleQuestionType}
+              handleQuestionText={this.handleQuestionText} 
+              handleQuestionOptions={this.handleQuestionOptions}
+            />)}
+          />
+        </Switch>
         {/* <Charts></Charts> */}
       </div>
     );
