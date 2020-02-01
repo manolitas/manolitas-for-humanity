@@ -4,7 +4,7 @@ import QuestionItem from '../QuestionItem';
 class Questions extends Component {
 
   render() {
-    const {questions, handleQuestionType,handleQuestionText} = this.props;
+    const {questions, handleQuestionType,handleQuestionText, handleQuestionOptions} = this.props;
     return (
       <ul className="questions">
         {questions.map(question => (
@@ -12,7 +12,8 @@ class Questions extends Component {
             <QuestionItem 
               question={question} 
               handleQuestionType={handleQuestionType}
-              handleQuestionText={handleQuestionText} />
+              handleQuestionText={handleQuestionText}
+              handleQuestionOptions={handleQuestionOptions} />
           </li>
         ))}
         

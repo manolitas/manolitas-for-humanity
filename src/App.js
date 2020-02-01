@@ -25,11 +25,20 @@ class App extends React.Component {
 
   handleQuestionText = event => {
     const target = event.target;
-    console.log(target.dataset.id);
     this.setState(prevState => {
       const newQuestions = [...prevState.questions];
       const index = newQuestions.findIndex(item=>item.question_id === target.dataset.id);
       newQuestions[index].name = target.value;
+      return newQuestions;
+    }); 
+  }
+
+  handleQuestionOptions = event => {
+    const target = event.target;
+    this.setState(prevState => {
+      const newQuestions = [...prevState.questions];
+      const index = newQuestions.findIndex(item=>item.question_id === target.dataset.id);
+      newQuestions[index].type.guided[target.dataset.option] = target.value;
       return newQuestions;
     }); 
   }
@@ -52,7 +61,8 @@ class App extends React.Component {
         <Admin 
           questions={questions} 
           handleQuestionType={this.handleQuestionType}
-          handleQuestionText={this.handleQuestionText} />
+          handleQuestionText={this.handleQuestionText} 
+          handleQuestionOptions={this.handleQuestionOptions} />
       </div>
     );
   }

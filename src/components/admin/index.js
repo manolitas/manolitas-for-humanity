@@ -4,7 +4,7 @@ import {Container} from '@material-ui/core';
 
 class Admin extends Component {
   render() {
-    const {questions, handleQuestionType, handleQuestionText} = this.props;
+    const {questions, handleQuestionType, handleQuestionText, handleQuestionOptions} = this.props;
     return (<div className="app__admin admin">
       <header className="admin__header">Preguntas</header>
       <main className="admin__main">
@@ -16,7 +16,8 @@ class Admin extends Component {
             <Questions 
               questions={questions} 
               handleQuestionType={handleQuestionType}
-              handleQuestionText={handleQuestionText} />
+              handleQuestionText={handleQuestionText} 
+              handleQuestionOptions={handleQuestionOptions} />
 
           </Container>
         </section>

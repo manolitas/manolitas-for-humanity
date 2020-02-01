@@ -3,7 +3,7 @@ import {Box, TextField, RadioGroup, Radio, FormControlLabel} from '@material-ui/
 
 class QuestionItem extends Component {
   render() {
-    const {handleQuestionType, question, handleQuestionText} = this.props;
+    const {handleQuestionType, question, handleQuestionText, handleQuestionOptions} = this.props;
     const {question_id, name, type} = question;
 
     return (
@@ -52,6 +52,8 @@ class QuestionItem extends Component {
                     variant="outlined"
                     value={option}
                     fullWidth
+                    inputProps={{"data-id": question_id,"data-option": index}}
+                    onChange={handleQuestionOptions}
                   />
                 </li>
               );
