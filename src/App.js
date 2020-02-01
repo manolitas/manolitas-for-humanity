@@ -2,18 +2,26 @@ import React from 'react';
 import Admin from './components/Admin';
 import './App.css';
 import data from './questions.json';
+import Landing from "./components/landing/index.js";
+// import Charts from "./components/charts/index.jsx";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: []
+      questions: [],
+      chatbotOpen: false,
     };
   }
+
   componentDidMount() {
     this.setState({
       questions: data.users.questions
     });
+  }
+
+  handleChatbot = () => {
+    this.setState({chatbotOpen: !this.state.chatbotOpen})
   }
 
   handleQuestionText = event => {
@@ -48,7 +56,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {questions} = this.state;
+    const {questions, chatbotOpen} = this.state;
     return (
       <div className="app">
         <Admin 
@@ -56,6 +64,8 @@ class App extends React.Component {
           handleQuestionType={this.handleQuestionType}
           handleQuestionText={this.handleQuestionText} 
           handleQuestionOptions={this.handleQuestionOptions} />
+        <Landing chatbotOpen={chatbotOpen} handleChatbot={this.handleChatbot}></Landing>
+        {/* <Charts></Charts> */}
       </div>
     );
   }
