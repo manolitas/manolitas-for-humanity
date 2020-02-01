@@ -1,5 +1,5 @@
 import React from 'react';
-import Admin from './components/Admin';
+import Admin from './components/admin';
 import './App.css';
 import data from './questions.json';
 import Landing from "./components/landing/index.js";
