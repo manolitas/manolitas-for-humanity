@@ -6,7 +6,13 @@ class Admin extends Component {
   render() {
     const {questions, handleQuestionType, handleQuestionText, handleQuestionOptions} = this.props;
     return (<div className="app__admin admin">
-      <header className="admin__header">Preguntas</header>
+      <header className="admin__header">
+      <Container 
+            component="div"
+            maxwidth="xl">
+        Preguntas
+      </Container>
+      </header>
       <main className="admin__main">
         <section className="admin__questions">
           <Container 
