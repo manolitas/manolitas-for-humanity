@@ -1,26 +1,80 @@
 import React from 'react';
-import logo from './logo.svg';
+import Admin from './components/Admin';
 import './App.css';
+import data from './questions.json';
+import Landing from "./components/landing/index.js";
+import {Route, Switch, Link} from 'react-router-dom';
+// import Charts from "./components/charts/index.jsx";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      questions: [],
+      chatbotOpen: false,
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      questions: data.users.questions
+    });
+  }
+
+  handleChatbot = () => {
+    this.setState({chatbotOpen: !this.state.chatbotOpen})
+  }
+
+  handleQuestionText = event => {
+    const target = event.target;
+    this.setState(prevState => {
+      const newQuestions = [...prevState.questions];
+      const index = newQuestions.findIndex(item=>item.question_id === target.dataset.id);
+      newQuestions[index].name = target.value;
+      return newQuestions;
+    }); 
+  }
+
+  handleQuestionOptions = event => {
+    const target = event.target;
+    this.setState(prevState => {
+      const newQuestions = [...prevState.questions];
+      const index = newQuestions.findIndex(item=>item.question_id === target.dataset.id);
+      newQuestions[index].type.guided[target.dataset.option] = target.value;
+      return newQuestions;
+    }); 
+  }
+
+
+  handleQuestionType = event => {
+    const target = event.target;
+    this.setState(prevState => {
+      const newQuestions = [...prevState.questions];
+      const index = newQuestions.findIndex(item=>item.question_id === target.dataset.id);
+      newQuestions[index].type.open = target.value;
+      return newQuestions;
+    });
+  }
+
+  render() {
+    const {questions, chatbotOpen} = this.state;
+    return (
+      <div className="app">
+        <Switch>
+          <Route exact path="/" render={() => <Landing chatbotOpen={chatbotOpen} handleChatbot={this.handleChatbot} />} />
+          <Route path="/admin" render={() => (
+            <Admin 
+              questions={questions} 
+              handleQuestionType={this.handleQuestionType}
+              handleQuestionText={this.handleQuestionText} 
+              handleQuestionOptions={this.handleQuestionOptions}
+            />)}
+          />
+        </Switch>
+        {/* <Charts></Charts> */}
+      </div>
+    );
+  }
 }
 
 export default App;
