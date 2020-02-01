@@ -18,24 +18,26 @@ class QuestionItem extends Component {
             label="pregunta"
             size="medium"
             variant="outlined"
-            fullWidth
+            fullWidth="true"
             value={name}
             onChange={handleQuestionText}
             inputProps={{"data-id": question_id}}
           />
 
-          <RadioGroup onChange={handleQuestionType}>
+          <RadioGroup className="question__block-type" onChange={handleQuestionType}>
             <FormControlLabel
               value="no"
               checked={type.open === 'no' ? true:false}
               control={<Radio inputProps={{"data-id": question_id}}/>}
               label="Dirigida"
+              className="question__block-type-item"
             />
             <FormControlLabel
               value="yes"
               checked={type.open === 'yes' ? true:false}
               control={<Radio inputProps={{"data-id": question_id}} />}
               label="Libre"
+              className="question__block-type-item"
             />
           </RadioGroup>
 
@@ -51,7 +53,7 @@ class QuestionItem extends Component {
                     size="medium"
                     variant="outlined"
                     value={option}
-                    fullWidth
+                    fullWidth="true"
                     inputProps={{"data-id": question_id,"data-option": index}}
                     onChange={handleQuestionOptions}
                   />

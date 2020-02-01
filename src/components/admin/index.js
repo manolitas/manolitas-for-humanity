@@ -1,17 +1,17 @@
 import React, {Component} from "react";
 import Questions from '../Questions';
 import {Container} from '@material-ui/core';
+import SimpleTabs from "./navbar/index.jsx";
+import './index.scss';
 
 class Admin extends Component {
   render() {
     const {questions, handleQuestionType, handleQuestionText, handleQuestionOptions} = this.props;
     return (<div className="app__admin admin">
       <header className="admin__header">
-      <Container 
-            component="div"
-            maxwidth="xl">
-        Preguntas
-      </Container>
+      
+      <SimpleTabs></SimpleTabs>
+      
       </header>
       <main className="admin__main">
         <section className="admin__questions">
