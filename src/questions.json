@@ -4,7 +4,7 @@
     "questions": [
       {
         "question_id": "1",
-        "question_name": "¿Cómo te sientes hoy?",
+        "name": "¿Cómo te sientes hoy?",
         "type": {
           "open": "no",
           "guided": ["bien", "normal", "mal"]
@@ -12,7 +12,7 @@
       },
       {
         "question_id": "2",
-        "question2_name": "¿Con quién interactúas?",
+        "name": "¿Con quién interactúas?",
         "type": {
           "open": "no",
           "guided": ["familiar", "cuidador", "enfermero"]
@@ -20,7 +20,7 @@
       },
       {
         "question_id": "3",
-        "question3_name": "¿Qué necesitas hoy?",
+        "name": "¿Qué necesitas hoy?",
         "type": {
           "open": "no",
           "guided": ["levantarme", "comer", "comunicarme con mi familia"]
@@ -28,7 +28,7 @@
       },
       {
         "question_id": "4",
-        "question4_name": "¿Qué edad tienes?",
+        "name": "¿Qué edad tienes?",
         "type": {
           "open": "yes",
           "guided": []
@@ -36,7 +36,7 @@
       },
       {
         "question_id": "5",
-        "question5_name": "¿Dónde vives?",
+        "name": "¿Dónde vives?",
         "type": {
           "open": "yes",
           "guided": []
@@ -44,7 +44,7 @@
       },
       {
         "question_id": "6",
-        "question6_name": "¿Eres mujer o hombre?",
+        "name": "¿Eres mujer o hombre?",
         "type": {
           "open": "no",
           "guided": ["mujer", "hombre"]
