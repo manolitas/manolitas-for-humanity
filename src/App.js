@@ -3,8 +3,8 @@ import Admin from './components/Admin';
 import './App.css';
 import data from './questions.json';
 import Landing from "./components/landing/index.js";
+import DataVisulization from "./components/dataVisualization/index.jsx";
 import {Route, Switch, Link} from 'react-router-dom';
-// import Charts from "./components/charts/index.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -76,8 +76,8 @@ class App extends React.Component {
               handleQuestionOptions={this.handleQuestionOptions}
             />)}
           />
+          <Route path="/visualization" render={() => <DataVisulization></DataVisulization>}
         </Switch>
-        {/* <Charts></Charts> */}
       </div>
     );
   }
