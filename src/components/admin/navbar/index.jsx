@@ -5,24 +5,24 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
 import {Link} from "react-router-dom";
+import Box from "@material-ui/core/Box";
 import './index.scss';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box p={3}>{children}</Box>}
-    </Typography>
+      <Typography
+        component="div"
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && <Box p={3}>{children}</Box>}
+      </Typography>
   );
 }
 
@@ -62,12 +62,9 @@ export default function SimpleTabs() {
           onChange={handleChange}
           aria-label="simple tabs example"
         >
-          <Tab label="Home" {...a11yProps(0)} />
-          <Link className="tab" to="/dashboard">
-            <Tab label="Dashboard" {...a11yProps(1)} />
-          </Link>
-          <Link className="goBack" to="/admin">
-            <Tab className="goBack" label="Admin" {...a11yProps(2)} />
+          <Tab label="Preguntas" {...a11yProps(0)} />
+          <Link className="goBack" to="/">
+            <Tab className="goBack" label="volver" {...a11yProps(2)} />
           </Link>
         </Tabs>
       </AppBar>
